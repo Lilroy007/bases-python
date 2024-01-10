@@ -54,19 +54,19 @@ tab3 = [
     ["e", 225, "11.7%"],
     ["f", 89, "12.1%"],
 ]
-def toto(tab3):
+def toto(valeur, tab3):
     gainPotentionnel = 0
     gainReel = 0
     bestRendement = 0
     bestAction = tab3[0]
     for action in tab3: 
-       pourcentage = float(action[2].replace('%'))
+       pourcentage = float(action[2].replace('%', ''))
        gainPotentionnel = (action[1] * pourcentage) / 100
-       quotient = valeur / action[1]
+       quotient = valeur // action[1]
        gainReel = quotient * gainPotentionnel
        if gainReel > bestRendement:
            bestRendement = gainReel
            bestAction = action
            return [bestAction, bestRendement]
-resultat = toto(tab3)
-print('La meilleure action est l\'action', resultat[1][0], 'avec un rendement maximal de', resultat[0], '€')
+resultat = toto(140, tab3)
+print('La meilleure action est', resultat[1][0], 'avec un rendement maximal de', resultat[0], '€')
